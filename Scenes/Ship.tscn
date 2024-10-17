@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://dso47wvx8a3m1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_po5ld"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5lowt"]
+material = SubResource("StandardMaterial3D_po5ld")
+size = Vector3(28, 5, 160)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwp2i"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_fjbpu"]
+material = SubResource("StandardMaterial3D_wwp2i")
+size = Vector3(28, 43, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlf4c"]
+albedo_color = Color(0.403462, 0, 0.0123922, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_wu0cr"]
+material = SubResource("StandardMaterial3D_mlf4c")
+size = Vector3(28, 43, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pg842"]
+material = SubResource("StandardMaterial3D_wwp2i")
+size = Vector3(28, 10, 183)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3pp7a"]
+material = SubResource("StandardMaterial3D_mlf4c")
+size = Vector3(28, 10, 183)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hif1s"]
+albedo_color = Color(0.945098, 0.811765, 0.623529, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_by1lk"]
+material = SubResource("StandardMaterial3D_hif1s")
+top_radius = 6.0
+bottom_radius = 6.0
+height = 18.0
+
+[node name="Ship" type="Node3D"]
+
+[node name="Superstructure" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.5, 0)
+mesh = SubResource("BoxMesh_5lowt")
+
+[node name="HullBow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, 5, -113)
+mesh = SubResource("PrismMesh_fjbpu")
+
+[node name="KeelBow" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, 0, -5, -113)
+mesh = SubResource("PrismMesh_wu0cr")
+
+[node name="Hull" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("BoxMesh_pg842")
+
+[node name="Keel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+mesh = SubResource("BoxMesh_3pp7a")
+
+[node name="HullStern" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 5, 113)
+mesh = SubResource("PrismMesh_fjbpu")
+
+[node name="KeelStern" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -5, 113)
+mesh = SubResource("PrismMesh_wu0cr")
+
+[node name="Funnel1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0)
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Funnel1"]
+transform = Transform3D(0.85, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_by1lk")
+
+[node name="Funnel2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0)
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Funnel2"]
+mesh = SubResource("CylinderMesh_by1lk")
+
+[node name="Funnel3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0)
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Funnel3"]
+mesh = SubResource("CylinderMesh_by1lk")
+
+[node name="Funnel4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 35, 0)
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Funnel4"]
+mesh = SubResource("CylinderMesh_by1lk")

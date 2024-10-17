@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://l2hbeu66kr7h"]
+
+[ext_resource type="Material" uid="uid://edhrl85x8kc3" path="res://Materials/Ocean.tres" id="1_11etx"]
+[ext_resource type="PackedScene" uid="uid://dso47wvx8a3m1" path="res://Scenes/Ship.tscn" id="3_r337r"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_1j2yk"]
+material = ExtResource("1_11etx")
+size = Vector2(1000, 1000)
+subdivide_width = 513
+subdivide_depth = 513
+orientation = 1
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_46now"]
+sky_top_color = Color(0.590623, 0.76392, 0.947718, 1)
+ground_bottom_color = Color(0.541088, 0.549479, 0.566269, 1)
+
+[sub_resource type="Sky" id="Sky_lauxg"]
+sky_material = SubResource("ProceduralSkyMaterial_46now")
+
+[sub_resource type="Environment" id="Environment_p7bic"]
+background_mode = 2
+sky = SubResource("Sky_lauxg")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 3, 5)
+
+[node name="Ship" parent="." instance=ExtResource("3_r337r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+
+[node name="Ocean" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_1j2yk")
+
+[node name="DirectionalLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 10, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p7bic")
