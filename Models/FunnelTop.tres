@@ -1,0 +1,9 @@
+[gd_resource type="CylinderMesh" load_steps=2 format=3 uid="uid://cnqdlarw3ah50"]
+
+[ext_resource type="Material" uid="uid://d4b0l6a0d2g6l" path="res://Materials/FunnelTop.tres" id="1_2u0sd"]
+
+[resource]
+material = ExtResource("1_2u0sd")
+top_radius = 5.0
+bottom_radius = 5.0
+height = 8.5
