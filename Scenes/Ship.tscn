@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dso47wvx8a3m1"]
+[gd_scene load_steps=14 format=3 uid="uid://dso47wvx8a3m1"]
 
 [ext_resource type="Material" uid="uid://bqgrdmy3t2oqy" path="res://Materials/Superstructure.tres" id="1_1ng6q"]
 [ext_resource type="Material" uid="uid://b3x3338bs7vle" path="res://Materials/Keel.tres" id="1_3mf2k"]
@@ -29,6 +29,17 @@ size = Vector3(28, 10, 183)
 [sub_resource type="BoxMesh" id="BoxMesh_3pp7a"]
 material = ExtResource("1_3mf2k")
 size = Vector3(28, 10, 183)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7ddwf"]
+material = ExtResource("1_ul4t7")
+radius = 3.5
+height = 30.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ljfkb"]
+material = ExtResource("1_ul4t7")
+top_radius = 5.0
+bottom_radius = 5.0
+height = 3.0
 
 [node name="Ship" type="Node3D"]
 
@@ -63,6 +74,14 @@ mesh = SubResource("BoxMesh_3pp7a")
 [node name="HullStern" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, 5, 113)
 mesh = SubResource("PrismMesh_fjbpu")
+
+[node name="HullStern2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 6.5, 123.489)
+mesh = SubResource("CapsuleMesh_7ddwf")
+
+[node name="HullStern3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.74776, 133.472)
+mesh = SubResource("CylinderMesh_ljfkb")
 
 [node name="KeelStern" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, 1, 8.74228e-08, 1, -4.37114e-08, 0, -5, 113)
