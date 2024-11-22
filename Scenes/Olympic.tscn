@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfusd4enc1lc0"]
+[gd_scene load_steps=3 format=3 uid="uid://dfusd4enc1lc0"]
 
 [ext_resource type="PackedScene" uid="uid://4a08m0spvgm4" path="res://Models/rms_olympic.glb" id="1_8qoda"]
+[ext_resource type="Script" path="res://Scripts/Olympic.gd" id="2_0ecvu"]
 
 [node name="Olympic" instance=ExtResource("1_8qoda")]
+script = ExtResource("2_0ecvu")
 
 [node name="Sketchfab_model" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -25, 0, 0)
