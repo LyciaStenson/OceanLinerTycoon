@@ -30,7 +30,6 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 
 [node name="Olympic" parent="." instance=ExtResource("1_lpp87")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7, 0)
-sink = true
 sink_rate = 0.9
 sink_pitch_rate = 0.015
 sink_roll_rate = 0.009
